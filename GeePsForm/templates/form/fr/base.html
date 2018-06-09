@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>GeePs Matlab License Center</title>
+		<img src="{% static "GeePsForm\static\img\logo.jpeg" %}" alt="Logo GeePs"/>
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    </head>
+    <body>
+        <div class="border border-dark">
+            <h1>GeePs Matlab License Center</h1>
+        </div>
+		<div class="col-md-offset-5 col-md-2">
+			<select class="form-control" name="language">
+				<option value="fr">Francais</option>
+				<option value="en">Anglais</option>
+			</select>
+		</div>
+		
+        <div class="content">		
+			{% block content %}
+			{% endblock %}
+        </div>
+    </body>
+</html>

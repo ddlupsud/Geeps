@@ -1,0 +1,71 @@
+{% extends 'form/base.html' %}
+{% block content %}
+
+	<!-- TODO: Template select-->
+	<form method="post" action="">
+		<div class="form-group row">
+			<label class="col-md-2 col-form-label" for="name">Nom : </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" name="name" required/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-md-2 col-form-label" for="firstname">Prénom : </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" name="firstname" required/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-md-2 col-form-label" for="email">Email : </label>
+			<div class="col-md-6">
+				<input type="" class="form-control" name="email" required/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-md-2 col-form-label" for="phone">Telephone : </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" name="phone" required/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-md-2 col-form-label" for="office">Bureau : </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" name="office" required/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-md-2 col-form-label" for="building">Batiment : </label>
+			<select name="building" class="col-md-6 form-control" required>
+				<option value="">GeePs</option>
+				<option value="">Breguet</option>
+			</select>
+		</div>
+		<div class="form-group row">
+			<label class="col-md-2 col-form-label" for="release">MatLab Licence : </label>
+			<select name="release" class="col-md-6 form-control" required>
+				<option value="">R2017b</option>
+				<option value="">R2013b</option>
+			</select>
+		</div>		
+		<div class="form-group row">
+			<label class="col-md-2 col-form-label" for="os">Systeme d'exploitation : </label>
+			<select name="os" class="col-md-6 form-control" required>
+				<option value="">Windows</option>
+				<option value="">Linux</option>
+				<option value="">MacOS</option>
+			</select>
+		</div>				
+		<div class="form-group row">
+			<label class="col-md-2 col-form-label" for="hostid">HostID : </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" name="hostid" required/>
+			</div>
+		</div>
+		<!--Href, Pop up ?-->
+		<div id="findHostID" class="col-md-6 col-md-offset-6">
+			Comment trouver son HostID ?
+		</div>
+		
+		<button type="submit" class="col-md-offset-10 col-md-2 btn btn-primary">Confirmer</button>
+	</form>
+{% endblock %}
