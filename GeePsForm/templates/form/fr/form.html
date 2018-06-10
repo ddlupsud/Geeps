@@ -1,71 +1,82 @@
-{% extends 'form/base.html' %}
+{% extends 'form/fr/base.html' %}
 {% block content %}
 
 	<!-- TODO: Template select-->
-	<form method="post" action="">
+	<form method="post" action="/en/submit">
+		{% csrf_token %}
 		<div class="form-group row">
-			<label class="col-md-2 col-form-label" for="name">Nom : </label>
+			<label class="col-md-2 col-form-label" for="name">Nom: </label>
 			<div class="col-md-6">
 				<input type="text" class="form-control" name="name" required/>
 			</div>
 		</div>
 		<div class="form-group row">
-			<label class="col-md-2 col-form-label" for="firstname">Pr�nom : </label>
+			<label class="col-md-2 col-form-label" for="first_name">Prénom: </label>
 			<div class="col-md-6">
-				<input type="text" class="form-control" name="firstname" required/>
+				<input type="text" class="form-control" name="first_name" required/>
 			</div>
 		</div>
 		<div class="form-group row">
-			<label class="col-md-2 col-form-label" for="email">Email : </label>
+			<label class="col-md-2 col-form-label" for="email">Email: </label>
 			<div class="col-md-6">
 				<input type="" class="form-control" name="email" required/>
 			</div>
 		</div>
 		<div class="form-group row">
-			<label class="col-md-2 col-form-label" for="phone">Telephone : </label>
+			<label class="col-md-2 col-form-label" for="phone">Téléphone: </label>
 			<div class="col-md-6">
-				<input type="text" class="form-control" name="phone" required/>
+				<input type="text" class="form-control" name="phone" pattern="^((\+|00)33\s?|0)[67](\s?\d{2}){4}$" required/>
 			</div>
 		</div>
 		<div class="form-group row">
-			<label class="col-md-2 col-form-label" for="office">Bureau : </label>
+			<label class="col-md-2 col-form-label" for="office">Bureau: </label>
 			<div class="col-md-6">
 				<input type="text" class="form-control" name="office" required/>
 			</div>
 		</div>
 		<div class="form-group row">
-			<label class="col-md-2 col-form-label" for="building">Batiment : </label>
-			<select name="building" class="col-md-6 form-control" required>
-				<option value="">GeePs</option>
-				<option value="">Breguet</option>
-			</select>
+			<label class="col-md-2 col-form-label" for="building">Bâtiment: </label>
+			<div class="col-md-6">
+				<select name="building" class="col-md-6 form-control" required>
+					<option value="geeps">GeePs</option>
+					<option value="breguet">Breguet</option>
+				</select>
+			</div>
 		</div>
 		<div class="form-group row">
-			<label class="col-md-2 col-form-label" for="release">MatLab Licence : </label>
-			<select name="release" class="col-md-6 form-control" required>
-				<option value="">R2017b</option>
-				<option value="">R2013b</option>
-			</select>
+			<label class="col-md-2 col-form-label" for="release">Licence Matlab: </label>
+			<div class="col-md-6">
+				<select name="release" class="form-control" required>
+					<option value="2017">R2017b</option>
+					<option value="2013">R2013b</option>
+				</select>
+			</div>
 		</div>		
 		<div class="form-group row">
-			<label class="col-md-2 col-form-label" for="os">Systeme d'exploitation : </label>
-			<select name="os" class="col-md-6 form-control" required>
-				<option value="">Windows</option>
-				<option value="">Linux</option>
-				<option value="">MacOS</option>
-			</select>
+			<label class="col-md-2 col-form-label" for="os">Système d'exploitation: </label>
+			<div class="col-md-6">
+				<select name="os" class="col-md-6 form-control" required>
+					<option value="windows">Windows</option>
+					<option value="linux">Linux</option>
+					<option value="mac">MacOS</option>
+				</select>
+			</div>
 		</div>				
 		<div class="form-group row">
-			<label class="col-md-2 col-form-label" for="hostid">HostID : </label>
+			<label class="col-md-2 col-form-label" for="hostid">HostID: </label>
 			<div class="col-md-6">
 				<input type="text" class="form-control" name="hostid" required/>
 			</div>
 		</div>
-		<!--Href, Pop up ?-->
-		<div id="findHostID" class="col-md-6 col-md-offset-6">
-			Comment trouver son HostID ?
+		<input type="hidden" name="language" value="fr"/>
+		<div id="findHostID" class="col-md-6 col-md-offset-6" onclick="findHostID()">
+			<a href="#">Comment trouver son HostID ?</a>
 		</div>
 		
-		<button type="submit" class="col-md-offset-10 col-md-2 btn btn-primary">Confirmer</button>
+		<div id="helpHostID">
+		
+		</div>
+		<br/>
+		<button type="submit" class="col-md-offset-10 col-md-2 btn btn-primary">Confirm</button>
 	</form>
 {% endblock %}

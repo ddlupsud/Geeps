@@ -8,16 +8,27 @@ function findHostID() {
 	if (language === "fr") {
 		if (os === "windows") {
 			divTip.innerHTML = "Windows\n\n"
-			+ /*premiere partie a traduire*/"For Network Concurrent or Network Named User licenses, l'addresse MAC doit etre utilisée en tant qu'host ID."
+			+ "Pour les licences Réseau simultané ou Utilisateur de réseau nommé, l'addresse MAC doit etre utilisée en tant qu'host ID."
 			+ "De plus, les ordinateurs avec un disque B: doivent utiliser l'addresse MAC en tant qu'host ID.\n\n"
 			+ "Pour obtenir l'addresse MAC de votre ordinateur, lancez l'invite de commandes Windows et executez la commande suivante:\n\n"
 			+ "getmac";
 		} else if (os === "linux") {
-			// TODO: translation
-			
+			divTip.innerHTML = "Linux\n\n"
+			+ "A partir de la R2014a, n'importe quelle adresse MAC peut être utilisée car l'host ID ne tient pas compte du nom de l'interface. "
+			+ "Si les interfaces sont énumérées, utilisez la plus petite interface énumérée. \n\n"
+			+ "Pour obtenir l'adresse MAC utilisant une interface système, effectué la commande suivante : \n\n"
+			+ "Où est écrit <nom_de_l'interface> correspond au nom de l'interface réseau. Par exemple, en0, eth0, wlan0, or enp5s0"
+			+ "sont commune les noms d’interfaces réseau Linux; bien que cela puisse varier d'un ordinateur à un autre. \n\n"
+			+ "Pour R2013b et plus tôt(avant), l'host ID est l’adresse MAC du eth0 ou de l’interface en0. \n\n"
+			+ "Pour obtenir l'adresse MAC utilisant une interface système, effectué la commande suivante: \n\n"
+			+ "L'adresse MAC est habituellement la valeur listé à la suite de \"HWaddr\"."
+			+ "Si votre distribution Linux n’a pas d’interfaces réseau qui suit le enX ou ethX convention nommage,"
+			+ "Vous allez avoir besoin soit de mettre à jour à MATLAB R2014a ou plus tard, ou change le nom de vos interfaces pour que MATLAB"
+			+ "puisse les détecter. Consulter votre documentation de répartition pour les instructions sur le changement d'interface"
+			+ "réseau convention nommage.\n";
 		} else {
 			// Mac
-			divTip.innerHTML = "MacOS\n\nSur Mac, l'host ID correspond à l'addresse MAC de l'appareiol en0.\n\n" 
+			divTip.innerHTML = "MacOS\n\nSur Mac, l'host ID correspond à l'addresse MAC de l'appareil en0.\n\n" 
 			+ "Pour obtenir l'addresse MAC de l'appareil en0, commencez par ouvrir un terminal:\n\n"
 			+ "Ouvrez Finder\nOuvrez le répertoire \"Applications\"\n"
 			+ "Ouvrez le répertoire \"Utilities\"\n"

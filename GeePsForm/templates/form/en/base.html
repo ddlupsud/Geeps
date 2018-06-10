@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>GeePs Matlab License Center</title>
-		<img src="{% static 'img/logo.jpeg' %}" alt="Logo GeePs"/>
+		<img src="{% static 'img/logo.jpg' %}" alt="Logo GeePs"/>
 		<link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     </head>
@@ -11,13 +11,16 @@
 			<div class="border border-dark">
 				<h1>GeePs Matlab License Center</h1>
 			</div>
+			<br/>
 			<div class="col-md-offset-5 col-md-2">
-				<select class="form-control" name="language">
-					<option value="fr">French</option>
-					<option value="en">English</option>
-				</select>
+				<form method="post" action="/change-language">
+					{% csrf_token %}
+					<select class="form-control" name="language" onchange="this.form.submit()">
+						<option value="fr">French</option>
+						<option value="en" selected="selected">English</option>
+					</select>
+				</form>
 			</div>
-			
 			<div class="content">		
 				{% block content %}
 				{% endblock %}

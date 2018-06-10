@@ -3,7 +3,8 @@ from . import views
 from django.urls import path, re_path
 
 urlpatterns = [
-    re_path('/(?P<language>^en|fr$)/submit/', views.submit),
-	re_path('/(?P<language>^en|fr$)/', views.form),
+	path('change-language', views.changeLanguage),
+    url(r'^(?P<language>^en|fr$)/submit(/?)$', views.submit),
+	url(r'^(?P<language>^en|fr$)(/?)$', views.form),
     path(r'', views.form, {'language': 'en'}),
 ]
