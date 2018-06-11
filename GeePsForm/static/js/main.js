@@ -2,10 +2,8 @@ const divTip = document.getElementById("helpHostID");
 const selectedLanguage = document.getElementById("language");
 const selectedOS = document.getElementById("os");
 
-console.log("test")
-
 function findHostID() {
-	let language = selectLanguage.value;
+	let language = selectedLanguage.value;
 	const os = selectedOS.value;
 	if (language === "fr") {
 		if (os === "windows") {

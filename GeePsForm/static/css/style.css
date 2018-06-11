@@ -1,3 +1,9 @@
 body {
 	font-style: Arial;
 }
+
+#helpHostID {
+	font-style: italic;
+	font-size: 11px;
+	margin: 10px;
+}

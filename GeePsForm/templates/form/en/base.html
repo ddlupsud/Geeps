@@ -15,7 +15,7 @@
 			<div class="col-md-offset-5 col-md-2">
 				<form method="post" action="/change-language">
 					{% csrf_token %}
-					<select class="form-control" name="language" onchange="this.form.submit()">
+					<select class="form-control" id="language" name="language" onchange="this.form.submit()">
 						<option value="fr">French</option>
 						<option value="en" selected="selected">English</option>
 					</select>
@@ -27,5 +27,5 @@
 			</div>
 		</div>
     </body>
-	<script type="text/javascript" src="{% static 'js/main.js' %}"><script/>
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </html>

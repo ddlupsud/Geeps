@@ -1,7 +1,6 @@
 {% extends 'form/fr/base.html' %}
 {% block content %}
 
-	<!-- TODO: Template select-->
 	<form method="post" action="/fr/submit">
 		{% csrf_token %}
 		<div class="form-group row">
@@ -55,7 +54,7 @@
 		<div class="form-group row">
 			<label class="col-md-2 col-form-label" for="os">Système d'exploitation: </label>
 			<div class="col-md-6">
-				<select name="os" class="col-md-6 form-control" required>
+				<select id="os" name="os" class="col-md-6 form-control" required>
 					<option value="windows">Windows</option>
 					<option value="linux">Linux</option>
 					<option value="mac">MacOS</option>
@@ -72,7 +71,7 @@
 		<div id="findHostID" class="col-md-6 col-md-offset-6" onclick="findHostID()">
 			<a href="#">Comment trouver son HostID ?</a>
 		</div>
-		
+		<br/>
 		<div id="helpHostID">
 		
 		</div>
