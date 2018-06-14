@@ -30,8 +30,7 @@ def sendMail(form):
 		"Activation Licence MatLab",
 		message,
 		sender,
-		# ["cri@geeps.centralesupelec.fr"],
-		["diego.daninthe@u-psud.fr"],
+		["cri@geeps.centralesupelec.fr"],
 		attachments=[generateAttachedCSV(form)],
 	)
 	
@@ -50,7 +49,7 @@ def sendMail(form):
 		body = "Votre demande d'activation de Matlab " + release + " a bien ete prise en compte pour votre systeme " + os + ".\n\nLe CRI du GeePs"
 		
 	# Acquittement
-	#send_mail(subject, body, sender, [form.data.get('email')], fail_silently=False)
+	send_mail(subject, body, sender, [form.data.get('email')], fail_silently=False)
 
 """Return the parameters for an attached csv"""
 def generateAttachedCSV(form):
@@ -64,7 +63,7 @@ def generateAttachedCSV(form):
 	building = form.data.get('building')
 	hostid = form.data.get('hostid')
 	
-	date = datetime.date.today().strftime('%d-%m-%Y')
+	date = datetime.date.today().strftime('%Y-%m-%d')
 	filename = "matlab-" + release + "-" + firstName + "_" + name + "-" + date + ".csv"
 	
 	activationLabel = firstName + "-" + name + "-" + release + "-" + date
@@ -92,7 +91,7 @@ def generateAttachedPDF(form):
 	hostid = form.data.get('hostid')
 	
 	date = datetime.date.today()
-	filename = "matlab-" + release + "-" + firstName + "_" + name + "-" + date.strftime('%d-%m-%Y') + ".pdf"
+	filename = "matlab-" + release + "-" + firstName + "_" + name + "-" + date.strftime('%Y-%m-%d') + ".pdf"
 	title = "MatLab Realease Informations"
 	
 	buffer = BytesIO()
